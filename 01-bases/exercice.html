@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Exercices</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function MyApp() {
+                return (
+                    <>
+                        <Jsx1 />
+                    </>
+                )
+            }
+
+            function Jsx1() {
+                const song = 'Chachacha';
+                const numberOfGoodReasonsToBeHere = 150;
+                const disabledButton = <button disabled>Bouton</button>
+
+                return (
+                    <div>
+                    <p>Afficher ici le contenu de la variable song</p>
+                    <p>Afficher ici le contenu de numberOfGoodReasonsToBeHere</p>
+                    <p>Afficher ici le contenu de disabledButton</p>
+                    </div>
+                )
+            }
+
+            const container = document.getElementById('root')
+            const root = ReactDOM.createRoot(container)
+            root.render(<MyApp />)
+        </script>
+    </body>
+</html>

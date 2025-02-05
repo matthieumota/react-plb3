@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello World</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function MyApp() {
+                const firstname = 'Fiorella'
+                const user = {
+                    firstname, // firstname: firstname
+                    lastname: 'Mota',
+                    avatar: 'https://i.pravatar.cc/100',
+                }
+
+                const fullName = (user) => user.firstname + ' ' + user.lastname
+
+                return (
+                    <>
+                        <h1>Hello {fullName(user)}</h1>
+                        <h2>Il est {new Date().toLocaleTimeString()}.</h2>
+                        <img
+                            src={user.avatar}
+                            className="avatar"
+                            style={{ borderRadius: 50 }}
+                        />
+                        <Welcome name="Fiorella" age={5} />
+                        <Welcome name="John" age={24} />
+                        <Welcome />
+                        <List peoples={[
+                            { id: 1, name: 'John' },
+                            { id: 2, name: 'Fiorella' },
+                        ]} />
+                        <List peoples={[
+                            { id: 1, name: 'Toto' },
+                            { id: 2, name: 'Titi' },
+                        ]} />
+                    </>
+                )
+            }
+
+            function List({ peoples }) {
+                //const peoples = [
+                //    { id: 1, name: 'John' },
+                //    { id: 2, name: 'Fiorella' },
+                //]
+
+                return (
+                    <ul>
+                        {/*peoples.map(v => <li>{JSON.stringify(v)}</li>)*/}
+                        {peoples.map(people =>
+                            <li key={people.id}>{people.name}</li>
+                        )}
+                    </ul>
+                )
+            }
+
+            function Welcome({ name, age = 0 }) {
+                const start = <>Hello {name || 'World'}</>
+
+                if (age === 0) {
+                    return
+                }
+
+                if (age < 18) {
+                    return <h1>{start}. Désolé, vous n'êtes pas majeur</h1>
+                }
+
+                return <h1>{start}. {age >= 25 ? 'Pas de promo' : 'Promo'}</h1>
+            }
+
+            const container = document.getElementById('root')
+            const root = ReactDOM.createRoot(container)
+            root.render(<MyApp />)
+            // setInterval(() => root.render(<MyApp />), 1000)
+        </script>
+    </body>
+</html>
