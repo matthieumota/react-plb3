@@ -5,6 +5,7 @@ import Clock from './components/Clock'
 import Counter from './components/Counter'
 import List from './components/List'
 import Wording from './components/Wording'
+import Ajax from './components/Ajax'
 
 function App() {
   const [showClock, setShowClock] = useState(true)
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+      <Ajax />
       <Button>
         Contactez nous
       </Button>

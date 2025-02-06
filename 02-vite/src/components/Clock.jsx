@@ -18,11 +18,11 @@ function Clock({ tz }) {
     const oldTz = useRef(tz) // useRef est un useState mais sans la partie render (optimisation)
     useEffect(() => { // Logique quand tz est update
         if (oldTz.current !== tz) { // Vérif nécessaire car le useEffect est fait au départ
-            alert('Le timezone a changé ! ' + tz)
+            // alert('Le timezone a changé ! ' + tz)
         }
 
         return () => {
-            alert('AVANT ' + tz)
+            // alert('AVANT ' + tz)
             oldTz.current = tz
         }
     }, [tz])
