@@ -1,5 +1,6 @@
 import './App.css'
 import Button from './Button'
+import Wording from './components/Wording'
 
 function App() {
   return (
@@ -7,12 +8,7 @@ function App() {
       <Button>
         Contactez nous
       </Button>
-      <Button>
-        Abc egaeag
-      </Button>
-      <Button>
-        Defge eagaeg
-      </Button>
+      <Wording title="Ma box" />
     </>
   )
 }
