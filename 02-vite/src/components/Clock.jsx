@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 function Clock({ tz }) {
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState(new Date())
 
     // Logique de construction (mount)
     useEffect(() => {

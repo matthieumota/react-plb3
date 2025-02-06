@@ -12,7 +12,7 @@ function List() {
     id: null,
     name: '',
     avatar: false,
-  });
+  })
 
   const handleAdd = () => {
     //const newUser = { id: nextId++, name: 'Tutu', avatar: 'https://i.pravatar.cc/150?u=Tutu' }
