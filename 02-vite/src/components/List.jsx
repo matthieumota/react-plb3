@@ -23,6 +23,30 @@ function List() {
     setNewUser({ id: null, name: '', avatar: false })
   }
 
+  const handleEdit = (id) => {
+    // Alternative
+    // const user = users.find(user => user.id === id)
+    // if (user.name === user.name.toUpperCase()) {
+    //   user.name = user.name.toLowerCase()
+    // } else {
+    //   user.name = user.name.toUpperCase()
+    // }
+    // setUsers([...users])
+
+    setUsers(users.map(user => {
+      if (user.id === id) {
+        let newName = user.name.toUpperCase()
+        if (newName === user.name) {
+          newName = user.name.toLowerCase()
+        }
+
+        return { ...user, name: newName }
+      }
+
+      return user
+    }))
+  }
+
   const handleRemove = (id) => {
     setUsers(users.filter(user => user.id !== id))
   }
@@ -38,7 +62,9 @@ function List() {
         {users.map(user =>
           <li key={user.id} className="flex items-center justify-center gap-8">
             <img src={user.avatar} alt={user.name} className="w-30 h-30 rounded-full" />
-            <h2 className="text-2xl font-bold">{user.name}</h2>
+            <h2 className="text-2xl font-bold" onDoubleClick={() => handleEdit(user.id)}>
+              {user.name}
+            </h2>
             <button
               className="cursor-pointer bg-red-500 px-3 py-2 text-white rounded-lg"
               onClick={() => handleRemove(user.id)}
