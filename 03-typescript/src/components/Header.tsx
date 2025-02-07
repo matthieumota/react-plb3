@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import { NavLink, NavLinkProps, NavLinkRenderProps } from 'react-router'
 
 function MenuLink({ children, to }: NavLinkProps) {
@@ -13,11 +14,17 @@ function MenuLink({ children, to }: NavLinkProps) {
 }
 
 function Header() {
+  const todos = useSelector((state: any) => state.todo)
+
   return (
-    <nav className="max-w-screen-lg mx-auto">
-      <MenuLink to="/">Accueil</MenuLink>
-      <MenuLink to="/admin">Admin</MenuLink>
-    </nav>
+    <div className="max-w-screen-lg mx-auto flex items-center justify-between">
+      <nav>
+        <MenuLink to="/">Accueil</MenuLink>
+        <MenuLink to="/admin">Admin</MenuLink>
+      </nav>
+
+      <p>{todos.length} todos</p>
+    </div>
   )
 }
 
