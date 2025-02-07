@@ -6,7 +6,7 @@ type Item = {
 }
 
 // Créer un superitem qui est un item avec une image
-type SuperItem = Partial<Item> & {
+export type SuperItem = Partial<Item> & {
   image: string
 }
 
@@ -17,8 +17,8 @@ type TableProps = {
 function Table({ data }: TableProps): JSX.Element {
   return (
     <>
-      {data.map(v =>
-        <li>{v.name} {v.price} {v.image}</li>
+      {data.map((v, i) =>
+        <li key={i}>{v.name} {v.price} {v.image}</li>
       )}
     </>
   )
