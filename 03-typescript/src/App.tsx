@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import Table, { SuperItem } from './Table'
+import { Outlet } from 'react-router'
+import Header from './components/Header';
 
 function App() {
   const [items, setItems] = useState<SuperItem[]>([
@@ -14,7 +16,12 @@ function App() {
 
   return (
     <>
-      <Table data={items} />
+      {/*<Table data={items} />*/}
+      <Header />
+
+      <Outlet />
+
+      FOOTER
     </>
   )
 }
