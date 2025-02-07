@@ -23,7 +23,7 @@ function LifecycleChallenge() {
    * La fonction retournée contient l'ancien state avant la mise à jour
    */
   useEffect(() => {
-    if (factsOnCats.length <= 0) {
+    if (factsOnCats.length == 0) {
       fetchFacts()
     }
   }, [factsOnCats])

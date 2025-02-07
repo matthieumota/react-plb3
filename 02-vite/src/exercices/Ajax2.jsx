@@ -17,7 +17,7 @@ function Example() {
     //   .then(response => setUsers(response))
 
     setLoading(true)
-    await wait(1000)
+    await wait(500)
     const response = await axios.get('https://jsonplaceholder.typicode.com/users')
     setUsers(response.data)
     setLoading(false)
@@ -25,7 +25,7 @@ function Example() {
 
   return (
     <>
-      {loading && <p class="animate-bounce py-32">Chargement...</p>}
+      {loading && <p className="animate-bounce py-32">Chargement...</p>}
       {!loading &&
         <ul>
           {users.map((user) => <li key={user.id}>{user.name}</li>)}

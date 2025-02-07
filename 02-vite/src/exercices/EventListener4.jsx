@@ -99,7 +99,8 @@ function EventListener4() {
 
           <button className="bg-blue-500 text-white hover:bg-blue-700 disabled:opacity-50 duration-300"
             onClick={addVegetable}
-            disabled={!newVegetable.name || !newVegetable.price}>
+            disabled={!newVegetable.name || !newVegetable.price}
+            type="submit">
             Sauvegarder
           </button>
         </form>
