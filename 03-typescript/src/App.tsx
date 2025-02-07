@@ -15,8 +15,6 @@ function App() {
     setItems([ ...items, { image: '10' } ])
   }, [])
 
-  const [title, setTitle] = useState('Mon App React')
-
   return (
     <>
       {/*<Table data={items} />*/}
@@ -24,7 +22,6 @@ function App() {
 
       <div className="max-w-screen-lg mx-auto py-16">
         <Outlet />
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
       </div>
 
       {/*
@@ -32,7 +29,7 @@ function App() {
         Dans ce même composant, on affichera l'année actuelle en dynamique (typescript)
         Essayer d'afficher le nom de la route active (hook comme useState ?)
       */}
-      <Footer title={title} />
+      <Footer title="'Mon App React'" />
     </>
   )
 }

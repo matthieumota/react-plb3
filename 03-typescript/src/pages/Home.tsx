@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteTodo, toggleTodo } from '../store'
+import TodoForm from '../components/TodoForm'
 
 function Home() {
   const todos = useSelector((state: any) => state.todo)
@@ -17,6 +18,7 @@ function Home() {
           </li>
         )}
       </ul>
+      <TodoForm />
     </>
   )
 }
